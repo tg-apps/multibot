@@ -1,0 +1,66 @@
+name: Release Bot
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_notes:
+        description: "Release notes for this version"
+        required: false
+        type: string
+        default: ""
+
+jobs:
+  release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun ci
+
+      - name: Build binary
+        run: bun run build
+
+      - name: Generate version
+        id: version
+        run: |
+          TIMESTAMP=$(date +"%Y-%m-%d-%H-%M")
+          echo "version=$TIMESTAMP" >> $GITHUB_OUTPUT
+          echo "Release version: $TIMESTAMP"
+
+      - name: Create release directory
+        run: |
+          mkdir -p release
+          cp dist/bot release/multibot
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b # v3.0.1
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: Release v${{ steps.version.outputs.version }}
+          body: |
+            ${{ github.event.inputs.release_notes }}
+
+            ## Installation
+
+            1. Download the `multibot` binary
+            2. Make it executable: `chmod +x multibot`
+            3. Run: `./multibot`
+
+            **Built with Bun** | **Linux ARM64**
+          files: |
+            release/multibot
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
