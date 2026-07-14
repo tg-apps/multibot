@@ -1,6 +1,7 @@
 import { run } from "@grammyjs/runner";
 import { Bot, GrammyError } from "grammy";
 
+import { handleCalculate } from "./handlers/calculate";
 import { handleConvert } from "./handlers/convert";
 import { handleDate, handleDay, handleYear } from "./handlers/datetime";
 import {
@@ -24,11 +25,15 @@ const bot = new Bot(TOKEN);
 const m = bot.on("message");
 
 m.command(["start", "help"], handleHelp);
+
 m.command("convert", handleConvert);
+m.command("calculate", handleCalculate);
 m.command("time", handleTime);
+
 m.command("day", handleDay);
 m.command("year", handleYear);
 m.command("date", handleDate);
+
 m.command("dice", handleDice);
 m.command("dice2", handleDice2);
 m.command("darts", handleDarts);
@@ -36,6 +41,7 @@ m.command("casino", handleCasino);
 m.command("football", handleFootball);
 m.command("basketball", handleBasketball);
 m.command("bowling", handleBowling);
+
 m.command("id", handleId);
 
 void bot.api.setMyCommands([
