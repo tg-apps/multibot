@@ -14,7 +14,7 @@
   "dependencies": {
     "@grammyjs/runner": "2.0.3",
     "grammy": "1.44.0",
-    "picocalc": "0.0.2"
+    "picocalc": "0.0.4"
   },
   "devDependencies": {
     "@gameroman/config": "0.2.5",
