@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@grammyjs/runner": "2.0.3",
-    "grammy": "1.44.0",
+    "grammy": "1.45.1",
     "picocalc": "0.0.4"
   },
   "devDependencies": {
