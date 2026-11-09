@@ -6,7 +6,7 @@
       "dependencies": {
         "@grammyjs/runner": "2.0.3",
         "grammy": "1.46.0",
-        "picocalc": "0.0.4",
+        "picocalc": "0.0.6",
       },
       "devDependencies": {
         "@gameroman/config": "0.3.0",
@@ -179,7 +179,7 @@
 
     "oxlint-tsgolint": ["oxlint-tsgolint@7.0.2005", "", { "optionalDependencies": { "@oxlint-tsgolint/darwin-arm64": "7.0.2005", "@oxlint-tsgolint/darwin-x64": "7.0.2005", "@oxlint-tsgolint/linux-arm64": "7.0.2005", "@oxlint-tsgolint/linux-x64": "7.0.2005", "@oxlint-tsgolint/win32-arm64": "7.0.2005", "@oxlint-tsgolint/win32-x64": "7.0.2005" }, "bin": { "tsgolint": "./bin/tsgolint.js" } }, "sha512-6ccPGu4u4J9bwYPHXBFPee3RZrX3BboRdU7k14zRDDB1lvN3O7J/vPRFdaEfa1+CWx4xnQQOp4ctoaF66oO0uw=="],
 
-    "picocalc": ["picocalc@0.0.4", "", { "dependencies": { "bigint.bitlength": "0.2.0" } }, "sha512-juVnswXVv0OGMOF8kQWoZi2uxLUkHj9fmKLoRBeIuHTHHAgRJplEW2d6i16xwf5JuX/TcybJAQ10xlJ/JZy/UQ=="],
+    "picocalc": ["picocalc@0.0.6", "", { "dependencies": { "bigint.bitlength": "0.2.0" } }, "sha512-26MzM+5ExA4OGLhGPcWLbV0aNZcQaGc0BqtPuiVOuqh40zSNleLmrSTYpMYI7eBnIKtCZHAq5t0zulDYR4yDoA=="],
 
     "tinypool": ["tinypool@2.2.0", "", {}, "sha512-jBrmx4lYmaC9k/mgPbylxs7kBUxHtD8256up+HjLaDFfXScKJQyil+SWXSvhAtT7XHo+yTVlpB81PGmHP8oLSQ=="],
 
